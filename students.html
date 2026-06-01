@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form method="post">
+
+<input name="name" placeholder="Name" required>
+
+<input name="age" placeholder="Age" required>
+
+<input name="branch" placeholder="Branch" required>
+
+<input name="semester" placeholder="Semester" required>
+
+<button>Add Student</button>
+
+</form>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Branch</th>
+<th>Semester</th>
+<th>Delete</th>
+
+</tr>
+
+{% for s in students %}
+
+<tr>
+
+<td>{{s[0]}}</td>
+<td>{{s[1]}}</td>
+<td>{{s[2]}}</td>
+<td>{{s[3]}}</td>
+<td>{{s[4]}}</td>
+
+<td>
+
+<a href="/delete_student/{{s[0]}}">
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

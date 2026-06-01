@@ -1,0 +1,123 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Marks Management</h2>
+
+<form method="post">
+
+<select
+name="student"
+required>
+
+{% for s in students %}
+
+<option>
+
+{{s[0]}}
+
+</option>
+
+{% endfor %}
+
+</select>
+<input
+name="subject"
+placeholder="Subject"
+required>
+
+<input
+name="mark"
+placeholder="Mark"
+required>
+
+<button>
+
+Add Mark
+
+</button>
+
+</form>
+
+<br>
+
+<h3>Subject Wise Marks</h3>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+
+<th>Student</th>
+
+<th>Subject</th>
+
+<th>Mark</th>
+
+<th>Delete</th>
+
+</tr>
+
+{% for r in records %}
+
+<tr>
+
+<td>{{r[0]}}</td>
+
+<td>{{r[1]}}</td>
+
+<td>{{r[2]}}</td>
+
+<td>{{r[3]}}</td>
+
+<td>
+
+<a
+href="/delete_mark/{{r[0]}}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<h3>Total Average and Grade</h3>
+
+<table border="1">
+
+<tr>
+
+<th>Student</th>
+
+<th>Average</th>
+
+<th>Grade</th>
+
+</tr>
+
+{% for g in grades %}
+
+<tr>
+
+<td>{{g[0]}}</td>
+
+<td>{{g[1]}}</td>
+
+<td>{{g[2]}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Fees Management</h2>
+
+<form method="post">
+
+<input
+name="student"
+placeholder="Student Name"
+required>
+
+<input
+name="tuition"
+placeholder="Tuition Fee"
+required>
+
+<input
+name="hostel"
+placeholder="Hostel Fee"
+required>
+
+<input
+name="transport"
+placeholder="Transport Fee"
+required>
+
+<input
+name="paid"
+placeholder="Amount Paid"
+required>
+
+<button>
+
+Add Fees
+
+</button>
+
+</form>
+
+<br>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+
+<th>Student</th>
+
+<th>Tuition</th>
+
+<th>Hostel</th>
+
+<th>Transport</th>
+
+<th>Total</th>
+
+<th>Paid</th>
+
+<th>Remaining</th>
+
+<th>Status</th>
+
+<th>Edit</th>
+
+<th>Delete</th>
+
+</tr>
+
+{% for r in records %}
+
+<tr>
+
+<td>{{r[0]}}</td>
+
+<td>{{r[1]}}</td>
+
+<td>{{r[2]}}</td>
+
+<td>{{r[3]}}</td>
+
+<td>{{r[4]}}</td>
+
+<td>{{r[5]}}</td>
+
+<td>{{r[6]}}</td>
+
+<td>{{r[7]}}</td>
+
+<td>{{r[8]}}</td>
+
+<td>
+
+<form
+action="/edit_fee/{{r[0]}}"
+method="post">
+
+<input
+name="paid"
+placeholder="New Paid Amount"
+required>
+
+<button>
+
+Update
+
+</button>
+
+</form>
+
+</td>
+
+<td>
+
+<a
+href="/delete_fee/{{r[0]}}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

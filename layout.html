@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Campus</title>
+
+<link rel="stylesheet"
+href="{{url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="/">Home</a>
+
+<a href="/students">Students</a>
+
+<a href="/attendance">Attendance</a>
+
+<a href="/marks">Marks</a>
+
+<a href="/fees">Fees</a>
+
+<a href="/events">Events</a>
+
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

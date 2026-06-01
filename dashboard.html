@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="hero">
+
+<h1>
+
+SMART CAMPUS MANAGEMENT SYSTEM
+
+</h1>
+
+<p>
+
+Manage Students, Attendance, Marks, Fees and Events
+
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card"
+onclick="location.href='/students'">
+
+<h3>
+
+Students
+
+</h3>
+
+<p>
+
+Manage student records
+
+</p>
+
+</div>
+
+<div class="card"
+onclick="location.href='/attendance'">
+
+<h3>
+
+Attendance
+
+</h3>
+
+<p>
+
+Track attendance percentage
+
+</p>
+
+</div>
+
+<div class="card"
+onclick="location.href='/marks'">
+
+<h3>
+
+Marks
+
+</h3>
+
+<p>
+
+Subject wise marks
+
+</p>
+
+</div>
+
+<div class="card"
+onclick="location.href='/fees'">
+
+<h3>
+
+Fees
+
+</h3>
+
+<p>
+
+Fee payment tracking
+
+</p>
+
+</div>
+
+<div class="card"
+onclick="location.href='/events'">
+
+<h3>
+
+Events
+
+</h3>
+
+<p>
+
+Event management
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

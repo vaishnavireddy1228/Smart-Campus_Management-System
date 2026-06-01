@@ -1,0 +1,126 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Attendance Management</h2>
+
+<form method="post">
+
+<select name="student" required>
+
+{% for s in students %}
+
+<option>{{s[0]}}</option>
+
+{% endfor %}
+
+</select>
+
+<input
+name="subject"
+placeholder="Subject"
+required>
+
+<input
+name="present"
+placeholder="Present Classes"
+required>
+
+<input
+name="total"
+placeholder="Total Classes"
+required>
+
+<button>
+
+Add Attendance
+
+</button>
+
+</form>
+
+<br>
+
+<table border="1" width="100%">
+
+<tr>
+
+<th>Student</th>
+
+<th>Subject</th>
+
+<th>Present</th>
+
+<th>Total</th>
+
+<th>Percentage</th>
+
+<th>Present +/-</th>
+
+<th>Total +/-</th>
+
+<th>Delete</th>
+
+</tr>
+
+{% for r in records %}
+
+<tr>
+
+<td>{{r[1]}}</td>
+
+<td>{{r[2]}}</td>
+
+<td>{{r[3]}}</td>
+
+<td>{{r[4]}}</td>
+
+<td>
+
+{% if r[4]|int>0 %}
+
+{{"%.2f"|format(
+(r[3]|int/r[4]|int)*100
+)}}%
+
+{% else %}
+
+0%
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="/plus_present/{{r[0]}}">+</a>
+
+<a href="/minus_present/{{r[0]}}">-</a>
+
+</td>
+
+<td>
+
+<a href="/plus_total/{{r[0]}}">+</a>
+
+<a href="/minus_total/{{r[0]}}">-</a>
+
+</td>
+
+<td>
+
+<a href="/delete_attendance/{{r[0]}}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

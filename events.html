@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Events Management</h2>
+
+<form method="post">
+
+<input
+name="eventname"
+placeholder="Event Name"
+required>
+
+<textarea
+name="participants"
+placeholder="Rahul,Priya,Anita"
+required>
+
+</textarea>
+
+<button>
+
+Add Event
+
+</button>
+
+</form>
+
+<br>
+
+<h3>Events Added</h3>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+
+<th>Event</th>
+
+<th>Participants</th>
+
+<th>Delete</th>
+
+</tr>
+
+{% for e in events %}
+
+<tr>
+
+<td>{{e[0]}}</td>
+
+<td>{{e[1]}}</td>
+
+<td>{{e[2]}}</td>
+
+<td>
+
+<a
+href="/delete_event/{{e[0]}}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<h3>Set Operations</h3>
+
+{% if events|length >= 2 %}
+
+<p>
+
+Event 1:
+{{events[-2][1]}}
+
+</p>
+
+<p>
+
+Event 2:
+{{events[-1][1]}}
+
+</p>
+
+<p>
+
+Intersection:
+
+{{intersection}}
+
+</p>
+
+<p>
+
+Difference:
+
+{{difference}}
+
+</p>
+
+<p>
+
+Union:
+
+{{union}}
+
+</p>
+
+{% else %}
+
+<p>
+
+Add minimum 2 events
+
+</p>
+
+{% endif %}
+
+{% endblock %}
